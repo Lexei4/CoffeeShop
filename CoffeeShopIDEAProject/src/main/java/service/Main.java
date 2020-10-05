@@ -9,6 +9,11 @@ public class Main {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("spring-context.xml");
 
+        /*
+        1. Create all neseccary equipment
+        2. Lazy initializations of ingridients
+        3. Ready to serve orders
+         */
 
     }
 }
