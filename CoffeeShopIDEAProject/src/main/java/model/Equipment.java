@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Equipment {
+import java.util.List;
+
+public abstract class Equipment implements  Identified<Long>{
     String name; // CoffeeMachine, Grinder, Scale
 
     public Equipment() {
@@ -19,5 +21,5 @@ public abstract class Equipment {
         return name;
     }
 
-    public abstract String performAction(); // performs an action that is required by this equipment
+    public abstract String performAction(List<Ingridient> ingridients); // performs an action that is required by this equipment
 }

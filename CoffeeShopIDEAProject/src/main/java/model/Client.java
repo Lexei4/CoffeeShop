@@ -1,4 +1,4 @@
 package model;
 
-public abstract class Client {
+public abstract class Client implements  Identified<Long>{
 }

@@ -1,7 +1,8 @@
 package model;
 
 
-public abstract class Ingridient {
+public abstract class Ingridient implements  Identified<Long>{
+    private Long id;
     private String name;
     private Float ammount;
     private Float price;
@@ -38,7 +39,13 @@ public abstract class Ingridient {
         return price;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 
 
