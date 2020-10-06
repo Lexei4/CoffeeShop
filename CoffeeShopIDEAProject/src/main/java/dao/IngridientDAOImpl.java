@@ -5,7 +5,7 @@ import model.Ingridient;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class IngridientDAOImpl extends AbstractDao<Ingridient, Long> implements IngridientDAO {
+public class IngridientDAOImpl extends AbstractDao<Ingridient, Integer> implements IngridientDAO {
 
     public IngridientDAOImpl() {
         super(Ingridient.class, new HashMap<>());
@@ -13,7 +13,7 @@ public class IngridientDAOImpl extends AbstractDao<Ingridient, Long> implements 
 
     public boolean ingridientExist(String name){
         for (Ingridient el : elements.values()) {
-            if (el.getName().equals(name)) {
+            if (el.getOrigin().equals(name)) {
                 return true;
             }
         }
