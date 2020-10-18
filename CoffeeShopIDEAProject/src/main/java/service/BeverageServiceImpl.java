@@ -25,6 +25,6 @@ public class BeverageServiceImpl implements BeverageService{
     @Override
     public void addMoneyToBankAccount(Beverage beverage) {
         double cost = beverage.calculateCost();
-        beverageDAO.save(cost);
+        beverageDAO.save(beverage);
     }
 }
