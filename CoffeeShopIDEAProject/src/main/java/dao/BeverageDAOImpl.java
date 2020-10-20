@@ -2,8 +2,9 @@ package dao;
 
 import model.Beverage;
 import java.util.HashMap;
+import java.util.UUID;
 
-public class BeverageDAOImpl extends AbstractDao<Beverage, Integer> implements BeverageDAO {
+public class BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
 
     private BeverageDAO beverageDAO;
 
@@ -11,12 +12,22 @@ public class BeverageDAOImpl extends AbstractDao<Beverage, Integer> implements B
     }
 
     @Override
-    public Beverage findBeverageById(String id) {
+    public Beverage findBeverageById(int id) {
+        for (Beverage el : elements.values()) {
+            if (el.getId().equals(id)) {
+                return el;
+            }
+        }
         return null;
     }
 
     @Override
-    public Beverage findBeverageByName(String name) {
+    public Beverage findBeverageByType(String type) {
+        for (Beverage el : elements.values()) {
+            if (el.getBeverageType().equals(type)) {
+                return el;
+            }
+        }
         return null;
     }
 

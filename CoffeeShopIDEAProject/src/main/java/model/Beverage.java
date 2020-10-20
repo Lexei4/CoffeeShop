@@ -1,19 +1,22 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-public class Beverage implements Identified<Integer>{
+import java.util.UUID;
+
+public class Beverage implements Identified<UUID>{
     String beverageType; // type of Beverage - Capucino, Latte, Espresso, Americano
-    int beverageId;
-    int beveragePrice; // retail price
+    UUID beverageId;
+    BigDecimal beveragePrice; // retail price
 
     List<Equipment> equipmentList; // equipment needed to prepare this beverage
     List<Ingridient> ingridientList;
 
-    public double calculateCost(){
-        double cost = 0;
+    public BigDecimal calculateCost(){
+        BigDecimal cost = new BigDecimal("0");
         for(Ingridient ing : ingridientList){
-            cost += ing.getPrice()*ing.getAmmount();
+            cost = cost.add(ing.getPrice().multiply(BigDecimal.valueOf(ing.getAmmount())));
         }
         return cost;
     }
@@ -43,19 +46,21 @@ public class Beverage implements Identified<Integer>{
         this.beverageType = beverageType;
     }
 
-    public int getBeverageId() {
+    @Override
+    public UUID getId() {
+
         return beverageId;
     }
 
-    public void setBeverageId(int beverageId) {
+    public void setBeverageId(UUID beverageId) {
         this.beverageId = beverageId;
     }
 
-    public int getBeveragePrice() {
+    public BigDecimal getBeveragePrice() {
         return beveragePrice;
     }
 
-    public void setBeveragePrice(int beveragePrice) {
+    public void setBeveragePrice(BigDecimal beveragePrice) {
         this.beveragePrice = beveragePrice;
     }
 
@@ -75,8 +80,5 @@ public class Beverage implements Identified<Integer>{
         this.ingridientList = ingridientList;
     }
 
-    @Override
-    public Integer getId() {
-        return null;
-    }
+
 }

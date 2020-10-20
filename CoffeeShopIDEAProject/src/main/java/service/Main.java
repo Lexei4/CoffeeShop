@@ -4,6 +4,9 @@ import model.Ingridient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -21,8 +24,8 @@ public class Main {
         Ingridient coffeeBeans = new Ingridient();
         coffeeBeans.setOrigin("Brazil");
         coffeeBeans.setAmmount(200.00);
-        coffeeBeans.setId(0001);
-        coffeeBeans.setPrice(10);
+        coffeeBeans.setId(UUID.randomUUID());
+        coffeeBeans.setPrice(new BigDecimal("10.20"));
 
         ingridientService.addIngredient(coffeeBeans);
 

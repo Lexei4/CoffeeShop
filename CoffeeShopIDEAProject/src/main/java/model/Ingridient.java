@@ -1,18 +1,24 @@
 package model;
 
 
-public class Ingridient implements  Identified<Integer>{
-    private int id;
+import java.math.BigDecimal;
+import java.util.UUID;
+
+public class Ingridient implements  Identified<UUID>{
+    private UUID id;
     private String origin;
     private double ammount;
-    private int price;
+    private BigDecimal price;
+    private String name;
+
+
 
     @Override
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -32,14 +38,21 @@ public class Ingridient implements  Identified<Integer>{
         this.ammount = ammount;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public Ingridient() {
     }

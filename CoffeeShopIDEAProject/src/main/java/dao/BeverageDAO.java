@@ -3,10 +3,12 @@ package dao;
 import model.Beverage;
 import model.Ingridient;
 
-public interface BeverageDAO  extends GenericDAO<Beverage, Integer>{
+import java.util.UUID;
+
+public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
 
 
-    Beverage findBeverageById(String id);
+    Beverage findBeverageById(int id);
 
-    Beverage findBeverageByName(String name);
+    Beverage findBeverageByType(String name);
 }

@@ -2,7 +2,9 @@ package dao;
 
 import model.Ingridient;
 
-public interface IngridientDAO extends GenericDAO<Ingridient, Integer>{
+import java.util.UUID;
+
+public interface IngridientDAO extends GenericDAO<Ingridient, UUID>{
 
     boolean ingridientExist(String username);
 
